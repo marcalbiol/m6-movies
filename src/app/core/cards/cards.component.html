@@ -1,0 +1,18 @@
+<div class="flex-container">
+  <ng-container *ngIf="cardsData">
+    <div *ngFor="let x of cardsData | async">
+      <div class="card" style="width: 18rem;">
+        <img alt="Card Image" class="card-img-top" src="https://image.tmdb.org/t/p/original/{{x.poster_path}}">
+        <div class="card-body">
+          <h3 class="card-title text-truncate">{{x.title}}</h3>
+          <p class="card-text text-truncate">{{x.overview}}</p>
+          <p class="text-truncate">{{x.id | details | async}}</p>
+          <p>{{x.release_date}}</p>
+          <a class="btn btn-primary" href="https://www.imdb.com/title/{{x.id | imbdID | async}}/">Ficha IMDB</a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
